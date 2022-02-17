@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { Application } from '@nativescript/core'
+import { RouterExtensions } from '@nativescript/angular'
 
 @Component({
   selector: 'Home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+  constructor(private router: RouterExtensions) {
     // Use the component constructor to inject providers.
   }
 
@@ -18,5 +19,18 @@ export class HomeComponent implements OnInit {
   onDrawerButtonTap(): void {
     const sideDrawer = <RadSideDrawer>Application.getRootView()
     sideDrawer.showDrawer()
+  }
+
+  
+  goForward(): void {
+    this.router
+                .navigate(["browse"], {
+                  transition: {
+                      name: "slideLeft",
+                      duration: 500,
+                      curve: "linear"
+                  },
+                  clearHistory: false
+              });
   }
 }

@@ -7,7 +7,7 @@
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon far" text="&#xf1ea;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="page__content">
+  <Button text="Go Back" (tap)="goBack()"></Button>
+  <Button text="Go Forward" (tap)="goForward()"></Button>
+</StackLayout>

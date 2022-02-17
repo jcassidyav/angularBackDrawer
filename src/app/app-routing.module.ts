@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('~/app/search/search.module').then((m) => m.SearchModule),
   },
   {
-    path: 'featured',
+    path: 'featured/thevar',
     loadChildren: () => import('~/app/featured/featured.module').then((m) => m.FeaturedModule),
   },
   {
@@ -27,7 +27,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [NativeScriptRouterModule.forRoot(routes)],
+  imports: [NativeScriptRouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [NativeScriptRouterModule],
 })
 export class AppRoutingModule {}

@@ -2,14 +2,19 @@ import { Component, OnInit } from '@angular/core'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { Application } from '@nativescript/core'
 import { RouterExtensions } from '@nativescript/angular'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'Browse',
   templateUrl: './browse.component.html',
 })
 export class BrowseComponent implements OnInit {
-  constructor(private router: RouterExtensions) {
-    // Use the component constructor to inject providers.
+  constructor( private router: RouterExtensions,private activateRoute: ActivatedRoute) {
+    this.activateRoute.data.subscribe((data) => {
+     
+      console.log("ROUTE STUFF");
+      
+  });
   }
 
   ngOnInit(): void {

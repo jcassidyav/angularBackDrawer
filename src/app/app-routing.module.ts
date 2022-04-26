@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes } from '@angular/router'
 import { NativeScriptRouterModule } from '@nativescript/angular'
-
+import { DelayResolve } from './browse/browse-resolver';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
@@ -11,6 +11,8 @@ const routes: Routes = [
   {
     path: 'browse',
     loadChildren: () => import('~/app/browse/browse.module').then((m) => m.BrowseModule),
+    resolve: { message: DelayResolve },
+    //runGuardsAndResolvers: "always"
   },
   {
     path: 'search',
